@@ -38,7 +38,7 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "irvin-wedding-99"
-          entrypoint: "server/entry.mjs"
+          entrypoint: ""
           root: "dist"
           
           
