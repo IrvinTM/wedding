@@ -16,7 +16,7 @@ import c4 from "../assets/4.png";
     <title>My Wedding</title>
   </head>
   <body class="bg-background">
-    <div class="fixed inset-0 pointer-events-none z-0">
+    <div class="fixed inset-0 pointer-events-none z-30">
       <div class="relative w-full h-full">
         <div
           class="absolute top-0 left-0 w-[200px] h-[200px] md:w-[300px] md:h-[300px] lg:w-[500px] lg:h-[500px]"
@@ -45,5 +45,45 @@ import c4 from "../assets/4.png";
         </div>
       </div>
     </div>
+    <style is:global>
+      @keyframes enter-animation {
+        0% {
+          transform: translateY(100px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      @media (prefers-reduced-motion: no-preference) {
+        .in-animation {
+          animation: enter-animation 0.8s 1;
+        }
+      }
+    </style>
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // Add the animation class when 50% of the element is visible
+              entry.target.classList.add("in-animation");
+            } /* else {
+              // Remove the animation class when it leaves the viewport
+              entry.target.classList.remove("in-animation");
+            } */
+          });
+        },
+        {
+          threshold: 0.0, // Trigger when 50% of the element is visible
+        }
+      );
+
+      const viewbox = document.querySelectorAll(".animate");
+      viewbox.forEach((image) => {
+        observer.observe(image);
+      });
+    </script>
   </body>
 </html>

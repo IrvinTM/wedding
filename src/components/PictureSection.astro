@@ -4,14 +4,14 @@ import pic1 from "../assets/pic1.jpeg";
 ---
 
 <section
-  class="mt-60 bg-background flex justify-center flex-col items-center relative z-20"
+  class="mt-60 px-4 py-4 bg-background flex justify-center flex-col items-center relative"
 >
   <Image
-    class="shadow-2xl border-secondary border-[4px] rounded-xl w-[60%]"
+    class="shadow-2xl animate border-secondary border-[4px] rounded-xl w-[60%] md:w-auto md:h-[500px] lg:w-auto lg:h-[600px]"
     src={pic1}
     alt="Picture 1"
   />
-  <div class="rounded-full mb-12 flex justify-center items-center">
+  <div class="rounded-full animate mb-12 flex justify-center items-center">
     <p
       class="mt-12 text-center p-2 rounded-lg text-primary font-elegant text-2xl px-4 shadow-2xl"
     >
@@ -20,9 +20,3 @@ import pic1 from "../assets/pic1.jpeg";
     </p>
   </div>
 </section>
-
-<!-- <style>
-  .fade {
-    mask-image: linear-gradient(#fef7ff 95%, transparent);
-  }
-</style> -->
