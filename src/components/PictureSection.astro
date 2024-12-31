@@ -3,18 +3,20 @@ import Image from "astro/components/Image.astro";
 import pic1 from "../assets/pic1.jpeg";
 ---
 
-<section class="pt-60 flex justify-center flex-col items-center relative z-20">
+<section
+  class="mt-60 bg-background flex justify-center flex-col items-center relative z-20"
+>
   <Image
-    class="shadow-2xl border-secondary border-[4px] rounded-full w-[60%]"
+    class="shadow-2xl border-secondary border-[4px] rounded-xl w-[60%]"
     src={pic1}
     alt="Picture 1"
   />
-  <div class="bg-secondary rounded-full mb-12">
+  <div class="rounded-full mb-12 flex justify-center items-center">
     <p
-      class="mt-12 text-center pb-12 text-primary font-elegant text-2xl px-4 shadow-2xl"
+      class="mt-12 text-center p-2 rounded-lg text-primary font-elegant text-2xl px-4 shadow-2xl"
     >
-      Las muchas aguas no podrán apagar el amor ni lo ahogarán los ríos. <br /> (Cantares
-      8:7a)
+      Las muchas aguas no podrán apagar el amor ni lo ahogarán los ríos. <br
+      />Cantares 8:7
     </p>
   </div>
 </section>
