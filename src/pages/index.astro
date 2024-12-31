@@ -1,11 +1,64 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-	<Welcome />
+  <div class="text-center pt-28 lg:pt-12 z-10 relative pb-0">
+    <h1
+      class="text-center leading-10 font-elegant text-8xl pl-3 md:text-9xl text-primary"
+    >
+      Gabriela
+    </h1>
+    <h1
+      class="text-center font-elegant text-8xl leading-[80px] md:leading-[50px] md:text-9xl text-primary"
+    >
+      e
+    </h1>
+    <h1
+      class="text-center font-elegant text-8xl leading-[100px] md:text-9xl md:leading-[170px] text-primary"
+    >
+      Irvin
+    </h1>
+    <h3
+      class="text-primary whitespace-break-spaces font-secondary text-2xl leading-tight"
+    >
+      Te invitan a su boda
+    </h3>
+    <h3 class="text-primary font-semibold font-mono text-3xl mt-12">Agosto</h3>
+    <div class="flex flex-row justify-center items-center gap-2">
+      <h3
+        class="text-primary font-mono text-xl border-t-2 border-primary border-b-2"
+      >
+        SABADO
+      </h3>
+      <h3 class="text-primary font-elegant text-8xl mr-2">30</h3>
+      <h3
+        class="text-primary font-mono text-xl pl-2 pr-2 border-t-2 border-b-2 border-primary"
+      >
+        8AM
+      </h3>
+    </div>
+    <h3 class="text-primary font-semibold font-mono text-3xl mt-4">2026</h3>
+    <div class="mt-6">
+      <h3 class="text-primary font-mono text-xl pl-2">123 Anywhere St.</h3>
+      <h3 class="text-primary font-mono text-xl pl-2">Any city</h3>
+    </div>
+  </div>
+
+  <style>
+    @font-face {
+      font-family: "Elegant";
+      src: url("../assets/BonheurRoyale-Regular.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Secondary";
+      src: url("../assets/Lumanosimo-Regular.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
 </Layout>
