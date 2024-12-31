@@ -1,0 +1,47 @@
+<section class="flex mb-60 flex-col mt-60 justify-center items-center">
+  <h1 class="text-primary animate font-secondary text-xl p-4 m-4">
+    CONFIRMA TU ASISTENCIA
+  </h1>
+
+  <form
+    class="flex flex-col text-center justify-center items-centerjj"
+    action=""
+  >
+    <label class="text-primary animate m-2" for="asistentes">Asistentes</label>
+    <textarea
+      class="bg-secondary animate text-sm text-center placeholder:text-gray-400 text-primary px-4 h-10 border border-primary outline-none rounded-xl"
+      spellcheck="false"
+      placeholder="Nombres de los asistentes "></textarea>
+    <label class="text-primary animate m-2" for="phone">Teléfono</label>
+    <input
+      type="text"
+      class="bg-secondary placeholder:text-gray-400 animate text-sm text-center text-primary px-4 h-10 border border-primary outline-none rounded-xl"
+      placeholder="70706654"
+    />
+    <label class="text-primary animate m-2" for="confirmacion"
+      >Confirmación</label
+    >
+    <select
+      name="confirmacion"
+      id="confirmacion"
+      class="bg-secondary animate text-sm text-center text-gray-400 px-4 h-10 border border-primary outline-none rounded-xl"
+    >
+      <option value="default" selected>Selecciona una opción</option>
+      <option value="si">Sí Asistiré</option>
+      <option value="no">No, no podré asistir</option>
+    </select>
+    <label class="text-primary animate m-2" for="asistentes"
+      >Mensaje para los novios</label
+    >
+    <textarea
+      class="bg-secondary animate text-sm text-center placeholder:text-gray-400 text-primary px-4 h-24 border border-primary outline-none rounded-xl"
+      spellcheck="false"
+      placeholder="Mensaje "></textarea>
+    <div>
+      <button
+        class="bg-white w-24 p-2 border border-primary rounded-full text-primary mt-4 hover:bg-secondary"
+        ><a target="_blank" href="">Enviar</a></button
+      >
+    </div>
+  </form>
+</section>

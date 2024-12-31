@@ -48,17 +48,17 @@ import c4 from "../assets/4.png";
     <style is:global>
       @keyframes enter-animation {
         0% {
-          transform: translateY(100px);
-          opacity: 0;
+          transform: translateY(100px); /* Animate position */
         }
         100% {
           transform: translateY(0);
-          opacity: 1;
         }
       }
+
       @media (prefers-reduced-motion: no-preference) {
         .in-animation {
-          animation: enter-animation 0.8s 1;
+          animation: enter-animation 0.8s ease-out 1;
+          will-change: transform; /* Optimize animation rendering */
         }
       }
     </style>
