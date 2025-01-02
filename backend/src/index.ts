@@ -1,45 +1,31 @@
-import { google } from "googleapis";
+import 'dotenv/config'
+import express from 'express'
+import cors from 'cors'
+import { writeData } from './google_sheets/googleSheets'
+
+const PORT = process.env.PORT || 3000
+
+type formObject = {
+    nombres: string,
+    telefono: number,
+    confirmacion: boolean
+    mensaje: string
+}
+
+const app = express()
+//TODO: Add cors to allow a single origin
+app.use(cors())
+
+app.use(express.json())
 
 
-const auth = new google.auth.GoogleAuth({
-    keyFile: "credentials.json",
-    scopes: "https://www.googleapis.com/auth/spreadsheets",
+app.post('/api/save', (req, res) => {
+    const data: formObject = req.body
+    writeData([[data.nombres, data.telefono, data.confirmacion, data.mensaje]]).then(() => {
+        res.status(201).json({ message: 'Data saved' })
+    })
 })
 
-
-async function writeData(values: any[][]) {
-    const sheets = google.sheets({ version: "v4", auth });
-    const spreadsheetId = "1lcrnKkkwST5m40A18bhBLkgtFPo1Ldg_KC0u0M7Xnbg"
-    const range = "sheet1!A:D"
-    const valueInputOption = "USER_ENTERED"
-
-    const resource = {
-        values,
-    }
-
-    try {
-        const response = await sheets.spreadsheets.values.append({
-            spreadsheetId,
-            range,
-            valueInputOption,
-            requestBody: resource,
-        })
-
-        console.log(response)
-        return response
-    } catch (err) {
-        console.error(err)
-    }
-}
-
-async function readData() {
-    const sheets = google.sheets({ version: "v4", auth });
-    const spreadsheetId = "1lcrnKkkwST5m40A18bhBLkgtFPo1Ldg_KC0u0M7Xnbg"
-    const range = "sheet1"
-    const data = await sheets.spreadsheets.values.get({
-        spreadsheetId,
-        range,
-    })
-    return data
-}
-
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`)
+})
