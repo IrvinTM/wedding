@@ -29,7 +29,7 @@ jobs:
           node-version: lts/*
 
       - name: Install step
-        run: "npm install && npm i --save-dev @types/express && npm i -S googleapis"
+        run: "npm install && npm i --save-dev @types/express && npm i -S googleapis && npm install --save @types/cors"
 
       - name: Build step
         run: "tsc"
