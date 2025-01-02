@@ -12,7 +12,7 @@ type formObject = {
     mensaje: string
 }
 
-(async () => {
+/* (async () => {
     const credentials = {
         type: Deno.env.get("TYPE"),
         project_id: Deno.env.get("PROJECT_ID"),
@@ -29,7 +29,11 @@ type formObject = {
     await Deno.writeTextFile("credentials1.json", JSON.stringify(credentials)).then(() => console.log("got credentials")).catch((e: any) => {
         console.log(e)
     })
-})();
+})(); */
+
+Deno.env.get("CREDS").then((creds) => {
+    console.log(creds)
+})
 
 
 const app = express()

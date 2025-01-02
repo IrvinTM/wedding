@@ -1,10 +1,14 @@
 import { google } from "npm:googleapis";
 import "jsr:@std/dotenv/load";
 
-const auth2 = new google.auth.GoogleAuth({
+/* const auth2 = new google.auth.GoogleAuth({
     keyFile: "credentials1.json",
     scopes: "https://www.googleapis.com/auth/spreadsheets",
-})
+}) */
+
+const creds = Deno.env.get("CREDS")
+
+const auth2 = google.auth.fromJSON(creds)
 
 export async function writeData(values: any[][]) {
 
