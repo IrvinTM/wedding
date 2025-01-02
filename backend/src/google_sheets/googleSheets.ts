@@ -6,7 +6,7 @@ const auth = new google.auth.GoogleAuth({
     scopes: "https://www.googleapis.com/auth/spreadsheets",
 })
 
-const auth2: string = process.env.APIKEY || ""
+const auth2: string = Deno.env.APIKEY || ""
 
 export async function writeData(values: any[][]) {
     const sheets = google.sheets({ version: "v4", auth });
