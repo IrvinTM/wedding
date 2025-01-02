@@ -35,7 +35,7 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "irvin-wedding-backend"
-          entrypoint: "index.js"
+          entrypoint: "index.ts"
           root: "./backend/src"
           
           
