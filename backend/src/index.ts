@@ -1,6 +1,6 @@
-import 'dotenv/config'
-import express from 'express'
-import cors from 'cors'
+import "jsr:@std/dotenv/load";
+import express from 'npm:express'
+import cors from 'npm:cors'
 import { writeData } from './google_sheets/googleSheets.ts'
 
 const PORT = process.env.PORT || 3000
