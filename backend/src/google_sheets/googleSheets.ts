@@ -1,4 +1,4 @@
-import { google } from "googleapis";
+import { google } from "npm:googleapis";
 import "jsr:@std/dotenv/load";
 
 
