@@ -39,6 +39,6 @@ jobs:
         with:
           project: "irvin-wedding-backend"
           entrypoint: "index.js"
-          root: "./dist"
+          root: "./backend/dist"
           
           
