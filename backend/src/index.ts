@@ -31,9 +31,6 @@ type formObject = {
     })
 })(); */
 
-Deno.env.get("CREDS").then((creds) => {
-    console.log(creds)
-})
 
 
 const app = express()
