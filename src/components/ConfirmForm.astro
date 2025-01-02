@@ -7,7 +7,10 @@
     CONFIRMA TU ASISTENCIA
   </h1>
 
-  <div class="flex flex-col text-center justify-center items-centerjj">
+  <div
+    id="form"
+    class="flex flex-col text-center justify-center items-centerjj"
+  >
     <label class="text-primary animate m-2" for="asistentes">Asistentes</label>
     <textarea
       class="bg-secondary animate text-sm text-center placeholder:text-gray-400 text-primary px-4 h-10 border border-primary outline-none rounded-xl"
@@ -16,9 +19,10 @@
       placeholder="Nombres de los asistentes "></textarea>
     <label class="text-primary animate m-2" for="phone">Teléfono</label>
     <input
-      type="text"
+      type="number"
       id="tel"
-      class="bg-secondary placeholder:text-gray-400 animate text-sm text-center text-primary px-4 h-10 border border-primary outline-none rounded-xl"
+      min="0"
+      class="bg-secondary [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none placeholder:text-gray-400 animate text-sm text-center text-primary px-4 h-10 border border-primary outline-none rounded-xl"
       placeholder="70706654"
     />
     <label class="text-primary animate m-2" for="confirmacion"
@@ -29,15 +33,16 @@
       id="confirmacion"
       class="bg-secondary animate text-sm text-center text-gray-400 px-4 h-10 border border-primary outline-none rounded-xl"
     >
-      <option value="default" selected>Selecciona una opción</option>
-      <option value="si">Sí Asistiré</option>
-      <option value="no">No, no podré asistir</option>
+      <option value="default" disabled selected>Selecciona una opción</option>
+      <option value="Sí Asistiré">Sí Asistiré</option>
+      <option value="No, no podré asistir">No, no podré asistir</option>
     </select>
     <label class="text-primary animate m-2" for="asistentes"
       >Mensaje para los novios</label
     >
     <textarea
       class="bg-secondary animate text-sm text-center placeholder:text-gray-400 text-primary px-4 h-24 border border-primary outline-none rounded-xl"
+      id="mensaje"
       spellcheck="false"
       placeholder="Mensaje "></textarea>
     <div>
@@ -47,24 +52,38 @@
       >
     </div>
   </div>
-  <!-- <script>
-    const nombres = document.getElementById("asistentes");
-    const telefono = document.getElementById("tel");
-    const confirmacion = document.getElementById("confirmacion");
-    const mensaje = document.getElementById("mensaje");
-    const boton = document.getElementById("button");
-    boton?.addEventListener("click", enviar);
+  <script>
+    const boton = document
+      .getElementById("button")
+      ?.addEventListener("click", () => enviar());
 
     function enviar() {
-      console.log(
-        "nombres : " + nombres?.innerText + "\n",
-        "tel : " + telefono?.innerText,
-        "confirm : " + confirmacion?.innerText,
-        "mensaje: " + mensaje?.innerText
-      );
-      console.log("Enviado");
-    }
+      const nombres = document.getElementById("asistentes") as HTMLInputElement;
+      if (!nombres) {
+        alert("Ingresa el nombre de al menos un asistente");
+      }
+      const telefono = document.getElementById("tel") as HTMLInputElement;
+      const tel = parseInt(telefono.value);
+      if (Number.isNaN(tel) || tel < 0) {
+        alert("Ingresar un número de teléfono válido");
+        return;
+      }
+      const confirmacion = document.getElementById(
+        "confirmacion"
+      ) as HTMLSelectElement;
+      const mensaje = document.getElementById("mensaje") as HTMLInputElement;
 
-    
-  </script> -->
+      console.log(
+        "nombres : " + nombres.value + "\n",
+        "tel : " + telefono.value + "\n",
+        "confirm : " + confirmacion.value + "\n",
+        "mensaje: " + mensaje.value + "\n"
+      );
+
+      nombres.value = "";
+      telefono.value = "";
+      confirmacion.selectedIndex = 0;
+      mensaje.value = "";
+    }
+  </script>
 </section>
