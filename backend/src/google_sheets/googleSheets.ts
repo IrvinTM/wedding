@@ -1,15 +1,14 @@
 import { google } from "npm:googleapis";
 import "jsr:@std/dotenv/load";
 
-const auth = new google.auth.GoogleAuth({
-    keyFile: "credentials.json",
+const auth2 = new google.auth.GoogleAuth({
+    keyFile: "credentials1.json",
     scopes: "https://www.googleapis.com/auth/spreadsheets",
 })
 
-const auth2: string = Deno.env.APIKEY || ""
-
 export async function writeData(values: any[][]) {
-    const sheets = google.sheets({ version: "v4", auth });
+
+    const sheets = google.sheets({ version: "v4", auth: auth2 });
     const spreadsheetId = "1lcrnKkkwST5m40A18bhBLkgtFPo1Ldg_KC0u0M7Xnbg"
     const range = "sheet1!A:D"
     const valueInputOption = "USER_ENTERED"
