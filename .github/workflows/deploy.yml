@@ -31,14 +31,11 @@ jobs:
       - name: Install step
         run: "cd backend && npm install"
 
-      - name: Build step
-        run: "cd backend && tsc"
-
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: "irvin-wedding-backend"
           entrypoint: "index.js"
-          root: "./backend/dist"
+          root: "./backend/src"
           
           
