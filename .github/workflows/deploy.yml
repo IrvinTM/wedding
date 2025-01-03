@@ -34,7 +34,7 @@ jobs:
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: "irvin-wedding-backend"
+          project: "irvin-wedding-61"
           entrypoint: "index.ts"
           root: "./backend/src"
           
