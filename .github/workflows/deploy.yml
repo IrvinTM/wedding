@@ -29,13 +29,16 @@ jobs:
           node-version: lts/*
 
       - name: Install step
-        run: "cd backend && npm install "
+        run: "npm install "
+
+      - name: Build step
+        run: "npm run build"
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: "irvin-wedding-61"
-          entrypoint: "index.ts"
-          root: "./backend/src"
+          entrypoint: "index.html"
+          root: "./dist"
           
           
