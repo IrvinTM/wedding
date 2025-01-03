@@ -72,13 +72,23 @@
         "confirmacion"
       ) as HTMLSelectElement;
       const mensaje = document.getElementById("mensaje") as HTMLInputElement;
+      
+      const data = {
+        nombres: nombres.value,
+        telefono: telefono.value,
+        confirmacion: confirmacion.value,
+        mensaje: mensaje.value
+      }
 
-      console.log(
-        "nombres : " + nombres.value + "\n",
-        "tel : " + telefono.value + "\n",
-        "confirm : " + confirmacion.value + "\n",
-        "mensaje: " + mensaje.value + "\n"
-      );
+     fetch("https://irvin-wedding-backend.deno.dev/api/save", {
+      method: "POST",
+       body: JSON.stringify(data),
+       headers:{
+        "Content-Type": "application/json"
+       }
+
+     }).then((res)=>alert("Gracias por confirmar :)"))
+
 
       nombres.value = "";
       telefono.value = "";
